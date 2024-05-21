@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="TreeTaggerModule.OutlineSelection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TreeTaggerModule"
+             mc:Ignorable="d" 
+             d:DesignHeight="285" d:DesignWidth="300">
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="285" Fill="#eff0f1" VerticalAlignment="Top" Width="300"/>
+        <Label Content="Grid Params"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,113,0,0"></Label>
+        <Label Content="Outline Parameters" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <ListBox Height="86" VerticalAlignment="Top" Name="gridSizesBox" HorizontalAlignment="Center" Width="276" Margin="0,26,0,0"/>
+        <local:NumberBox NumberString="40" x:Name="gridSize" Margin="14,157,228,93"></local:NumberBox>
+        <local:NumberBox NumberString="10" x:Name="gridMinTrees" Margin="93,157,150,93"></local:NumberBox>
+        <Button Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Click="AddButtonClicked" Width="42" Height="20" Margin="173,259,0,0"/>
+        <Button Content="Remove" HorizontalAlignment="Left" VerticalAlignment="Top" Click="RemoveButtonClicked" Width="54" Height="20" Margin="234,259,0,0" RenderTransformOrigin="0.63,0.45"/>
+        <Label Content="size(m)           min trees" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Margin="14,131,0,0"/>
+        <Rectangle HorizontalAlignment="Left" Height="1" Margin="10,133,0,0" Stroke="Black" VerticalAlignment="Top" Width="70"/>
+        <Label Content="Smoothing Params"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,178,0,0"/>
+        <Rectangle HorizontalAlignment="Left" Height="1" Margin="12,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="105"/>
+        <local:NumberBox NumberString="0.5" x:Name="growth" Margin="14,221,228,29"/>
+        <local:NumberBox NumberString="0.5" x:Name="shrink" Margin="93,221,150,29"/>
+        <Label Content="growth             shrink                steps         " HorizontalAlignment="Left" VerticalAlignment="Top" Width="216" Margin="14,196,0,0"/>
+        <local:NumberBox NumberString="10" x:Name="steps" Margin="173,221,70,29"/>
+
+    </Grid>
+</UserControl>

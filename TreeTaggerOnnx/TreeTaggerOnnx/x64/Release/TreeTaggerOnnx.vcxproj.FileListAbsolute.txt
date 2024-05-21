@@ -1,0 +1,5 @@
+C:\Users\danie\Documents\Treefall Model\TreeTaggerOnnx\x64\Release\DirectML.dll
+C:\Users\danie\Documents\Treefall Model\TreeTaggerOnnx\x64\Release\DirectML.pdb
+C:\Users\danie\Documents\Treefall Model\TreeTaggerOnnx\x64\Release\opencv_world452.dll
+C:\Users\danie\Documents\Treefall Model\TreeTaggerOnnx\x64\Release\opencv_videoio_ffmpeg452_64.dll
+C:\Users\danie\Documents\Treefall Model\TreeTaggerOnnx\x64\Release\onnxruntime.dll

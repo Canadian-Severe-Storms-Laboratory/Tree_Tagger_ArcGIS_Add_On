@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="APIWIndow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="NumberBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RasterSelectionBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="VectorMapSelection.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="APIWIndow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DirectionReRunWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NumberBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PolygonReRun.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RasterSelectionBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="OutlineSelection.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="VectorMapSelection.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

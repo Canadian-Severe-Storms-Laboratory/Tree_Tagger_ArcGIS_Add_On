@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="TreeTaggerModule.APIWIndow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TreeTaggerModule"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400">
+
+    <TabControl x:Name="tabControl">
+        <TabItem Header="Settings" Width="100">
+            <Grid>
+                <Border x:Name="SettingsBorder" Grid.Column="0" BorderThickness="1"/>
+                <Button Content="Done" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" x:Name="DoneButton" Click="DoneButtonClicked" Grid.Column="1"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Console"  Width="100">
+            <Grid>
+                <TextBox AcceptsTab="True" AcceptsReturn="True" TextWrapping="Wrap" Text="" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" x:Name="ConsoleTextBox" IsReadOnly="True" FontFamily="Consolas" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="10,10,10,10"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
+
+</UserControl>

@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="TreeTaggerModule.VectorMapSelection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TreeTaggerModule"
+             mc:Ignorable="d" 
+             d:DesignHeight="175" d:DesignWidth="300">
+    <Grid>
+        <Rectangle HorizontalAlignment="Center" Height="201" Fill="#eff0f1" VerticalAlignment="Center" Width="300"/>
+        <Label Content="Direction Grid Sizes" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,13,0,0"/>
+        <ListBox Height="86" VerticalAlignment="Top" Name="gridSizesBox" HorizontalAlignment="Center" Width="276" Margin="0,39,0,0"/>
+        <local:NumberBox NumberString="40" x:Name="gridSize" Margin="12,146,230,0"></local:NumberBox>
+        <local:NumberBox NumberString="10" x:Name="gridMinTrees" Margin="91,146,152,0"></local:NumberBox>
+        <Button Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Click="AddButtonClicked" Width="42" Height="20" Margin="174,144,0,0"/>
+        <Button Content="Remove" HorizontalAlignment="Left" VerticalAlignment="Top" Click="RemoveButtonClicked" Width="54" Height="20" Margin="234,144,0,0"/>
+        <Label Content="size(m)           min trees" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Margin="12,120,0,0"/>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="106" SelectedIndex="0" Name="directionInterpolationBox" Margin="182,15,0,0">
+            <ComboBoxItem Content="Median"/>
+            <ComboBoxItem Content="Dual-Median"/>
+            <ComboBoxItem Content="Dual-Medoid (slow)"/>
+        </ComboBox>
+
+    </Grid>
+</UserControl>
