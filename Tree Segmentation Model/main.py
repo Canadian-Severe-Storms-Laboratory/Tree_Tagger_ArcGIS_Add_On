@@ -402,7 +402,7 @@ class CustomHyperModel(kt.HyperModel):
         #
         # model.add(tf.keras.layers.Dense(3, activation='softmax'))
 
-        model = sm.Unet(hp.Choice('architecture', ['resnet50', 'vgg19', 'resnext50', 'seresnet50', 'seresnext50']), input_shape=(256, 256, 3), classes=2, encoder_weights="imagenet")
+        model = sm.Unet(hp.Choice('architecture', ['resnet50', 'vgg19', 'resnext50', 'seresnet50', 'seresnext50']),  , classes=2, encoder_weights="imagenet")
 
         learning_rate = hp.Float('lr', min_value=0.00001, max_value=0.001, sampling="log")
 

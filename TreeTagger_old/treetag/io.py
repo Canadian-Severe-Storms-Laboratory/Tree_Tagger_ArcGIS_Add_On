@@ -42,6 +42,18 @@ def load_vector_shapefile(file_path, image_scale, top_left):
     return lines
 
 
+def load_polygon_shapefile(file_path, image_scale, top_left):
+    sfr = shapefile.Reader(file_path)
+    shapes = sfr.shapes()
+
+    polygons = []
+
+    for shape in shapes:
+        polygons.append(coords_points_to_pixels(shape.points, image_scale, top_left))
+
+    return polygons
+
+
 def export_line_shapefile(lines, scale, top_left, file_path):
     # converting pixels to coords
     coord_lines = pixels_to_coords(lines, scale, top_left)

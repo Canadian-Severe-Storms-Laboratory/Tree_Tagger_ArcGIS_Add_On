@@ -20,6 +20,7 @@ def coords_to_pixels(lines, scale, top_left):
              (top_left[1] - l[3])/scale[1]] for l in lines]
 
 
+# pts = [x, y], top_left = [x1, y1], scale = 0.05
 def coords_points_to_pixels(pts, scale, top_left):
     return [[(p[0] - top_left[0])/scale[0], (top_left[1] - p[1])/scale[1]] for p in pts]
 

@@ -80,7 +80,7 @@ namespace Utils {
 		}
 	}
 
-	std::string date_time() {
+	std::string dateTime() {
 		time_t curr_time;
 
 		(void)time(&curr_time);
@@ -88,7 +88,7 @@ namespace Utils {
 
 		char time_string[18];
 
-		(void)strftime(time_string, 18, "%m_%d_%y_%H_%M_%S", curr_tm);
+		(void)strftime(time_string, 18, "%y_%m_%d_%H_%M_%S", curr_tm);
 
 		return time_string;
 	}
@@ -100,7 +100,7 @@ namespace Utils {
 	}
 
 	std::string setupEnv(const std::string& projectPath, const bool fullSetup = true) {
-		std::string resultsPath = projectPath + "/TreeTagger/Results_" + date_time();
+		std::string resultsPath = projectPath + "/TreeTagger/Results_" + dateTime();
 
 		createDirectory(projectPath + "/TreeTagger");
 		createDirectory(resultsPath);

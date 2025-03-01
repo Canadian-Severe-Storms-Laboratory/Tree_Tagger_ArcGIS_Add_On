@@ -8,15 +8,21 @@ TreeTaggerModule/TreeTaggerModule/bin/
 
 TreeTaggerOnnx/.vs/
 TreeTaggerOnnx/packages/
-TreeTaggerOnnx/x64
+TreeTaggerOnnx/x64/
 TreeTaggerOnnx/OnnxGPUdlls/
 TreeTaggerOnnx/models/*.onnx
 
 TreeTagger_old/*.h5
 TreeTagger_old/*.png
 
-
-
-
-
-
+/"Dataset Builder"/.idea
+/Tree Segmentation Model/.idea
+/Dataset Builder/.idea
+/TreeTagger_old/.idea
+TreeTaggerOnnx/ClassDiagram.cd
+TreeTaggerOnnx/ClassDiagram1.cd
+/TreeTaggerOnnx/TreeTaggerOnnx/x64
+/TreeTaggerOnnx/TreeTaggerOnnx/x64
+/TreeTaggerOnnx/TreeTaggerOnnx/x64
+Dataset Builder/.idea/.name
+/Dataset Builder

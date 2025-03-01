@@ -33,12 +33,12 @@ def draw_polygons(csv_path, image):
 
 
 if __name__ == '__main__':
-    image = cv2.imread("tree_polygons/images/2.bmp")
+    image = cv2.imread("images/4.png")
 
-    image = draw_polygons("tree_polygons/polygon_csv/2.csv", image)
+    image = draw_polygons("polygon_csv/4.csv", image)
 
     cv2.imshow("polygons", image)
-    cv2.imwrite("polygons2.png", image)
+    cv2.imwrite("polygons4.png", image)
     cv2.waitKey(0)
 
 

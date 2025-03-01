@@ -81,14 +81,14 @@ namespace TreeTaggerModule
                 var pathProject = ArcGIS.Desktop.Core.Project.Current.URI;
                 string shapeFilesPath = System.IO.Path.GetDirectoryName(pathProject) + "\\TreeTagger";
 
-                List<string> subDirectories = new List<string>(System.IO.Directory.GetDirectories(shapeFilesPath));
+                List<string> subDirectories = [.. System.IO.Directory.GetDirectories(shapeFilesPath)];
                 subDirectories.RemoveAll(x => !x.Contains("Results"));
                 subDirectories.Sort();
-                string[] shapeFiles = System.IO.Directory.GetFiles(subDirectories[subDirectories.Count() - 1]);
+                string[] shapeFiles = System.IO.Directory.GetFiles(subDirectories[subDirectories.Count - 1]);
 
-                List<string> pointShapeFiles = new List<string>();
-                List<string> lineShapeFiles = new List<string>();
-                List<string> polygonShapeFiles = new List<string>();
+                List<string> pointShapeFiles = [];
+                List<string> lineShapeFiles = [];
+                List<string> polygonShapeFiles = [];
 
                 //get all not currently displayed shape files
                 try

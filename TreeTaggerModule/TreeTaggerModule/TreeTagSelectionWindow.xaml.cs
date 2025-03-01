@@ -79,6 +79,7 @@ namespace TreeTaggerModule
             apiWindow.APICall = TreeTaggerAPI.AnalyzeEvent;
             apiWindow.AfterCall = AfterCall;
 
+            MessageBox.Show(Utils.AddinAssemblyLocation());
         }
 
         private async Task<Dictionary<string, Object>> ConstructPacket()
