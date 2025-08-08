@@ -94,9 +94,7 @@ namespace Utils {
 	}
 
 	void checkCancelled() {
-		if (cancelFlag != nullptr && *cancelFlag) {
-			throw std::runtime_error("Cancelled");
-		}
+		if (cancelFlag != nullptr && *cancelFlag) throw std::runtime_error("Cancelled");
 	}
 
 	std::string setupEnv(const std::string& projectPath, const bool fullSetup = true) {

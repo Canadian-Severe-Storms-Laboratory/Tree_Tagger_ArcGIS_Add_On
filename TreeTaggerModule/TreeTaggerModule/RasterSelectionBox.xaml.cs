@@ -74,14 +74,7 @@ namespace TreeTaggerModule
 
             await QueuedTask.Run(() =>
             {
-                path = layer.GetPath().ToString();
-
-                if (path.Substring(0, 8).Equals(@"file:///"))
-                {
-                    path = path.Substring(8);
-                }
-
-                path = path.Replace("%20", " ");
+                path = Utils.GetLayerPath(layer);
 
                 try
                 {

@@ -1,4 +1,5 @@
 ﻿using ArcGIS.Core.CIM;
+using ArcGIS.Core.Data.Raster;
 using ArcGIS.Desktop.Framework.Threading.Tasks;
 using ArcGIS.Desktop.Mapping;
 using System;
@@ -24,43 +25,52 @@ namespace TreeTaggerModule
             return System.IO.Path.GetDirectoryName(Uri.UnescapeDataString(new Uri(asm.Location).LocalPath));
         }
 
+        public static string GetLayerPath(Layer layer)
+        {
+            string path = "";
+
+            CIMDataConnection dataConnection = layer.GetDataConnection();
+
+            if (dataConnection is CIMStandardDataConnection)
+            {
+                CIMStandardDataConnection dataSConnection = dataConnection as CIMStandardDataConnection;
+
+                string sConnection = dataSConnection.WorkspaceConnectionString;
+
+                var wFactory = dataSConnection.WorkspaceFactory;
+                if (wFactory == WorkspaceFactory.Raster)
+                {
+                    string sWorkspaceName = sConnection.Split('=')[1];
+
+                    string sTable = dataSConnection.Dataset;
+
+                    path = System.IO.Path.Combine(sWorkspaceName, sTable);
+                }
+            }
+
+            return path;
+        }
+
         public static (List<string>, List<double[]>, List<double[]>, List<double>) GetRasterData(List<RasterLayer> rLayers)
         {
             var filePaths = new List<string>();
             var coords = new List<double[]>();
             var scales = new List<double>();
             var sizes = new List<double[]>();
-            //add the image file path and top left corner of each selected raster to cmd command
+
             foreach (var raster in rLayers)
             {
-                string fullSpec = string.Empty;
-                CIMDataConnection dataConnection = raster.GetDataConnection();
-                if (dataConnection is CIMStandardDataConnection)
+                string path = GetLayerPath(raster);
+
+                if (!string.IsNullOrEmpty(path) && !filePaths.Contains(path))
                 {
-                    CIMStandardDataConnection dataSConnection = dataConnection as CIMStandardDataConnection;
-
-                    string sConnection = dataSConnection.WorkspaceConnectionString;
-
-                    var wFactory = dataSConnection.WorkspaceFactory;
-                    if (wFactory == WorkspaceFactory.Raster)
-                    {
-                        string sWorkspaceName = sConnection.Split('=')[1];
-
-                        string sTable = dataSConnection.Dataset;
-
-                        fullSpec = System.IO.Path.Combine(sWorkspaceName, sTable);
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(fullSpec) && !filePaths.Contains(fullSpec))
-                {
-                    filePaths.Add(fullSpec);
+                    filePaths.Add(path);
 
                     var extend = raster.GetRaster().GetExtent();
 
-                    coords.Add(new double[] { extend.XMin, extend.YMax });
+                    coords.Add([extend.XMin, extend.YMax]);
 
-                    sizes.Add(new double[] { raster.GetRaster().GetWidth(), raster.GetRaster().GetHeight() });
+                    sizes.Add([raster.GetRaster().GetWidth(), raster.GetRaster().GetHeight()]);
 
                     scales.Add(raster.GetRaster().GetMeanCellSize().Item1);
 
