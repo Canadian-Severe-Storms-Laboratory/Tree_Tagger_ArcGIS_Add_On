@@ -1,17 +1,9 @@
 ﻿using ArcGIS.Core.CIM;
-using ArcGIS.Core.Data.Raster;
 using ArcGIS.Desktop.Framework.Threading.Tasks;
 using ArcGIS.Desktop.Mapping;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Security.RightsManagement;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace TreeTaggerModule
 {
@@ -27,28 +19,7 @@ namespace TreeTaggerModule
 
         public static string GetLayerPath(Layer layer)
         {
-            string path = "";
-
-            CIMDataConnection dataConnection = layer.GetDataConnection();
-
-            if (dataConnection is CIMStandardDataConnection)
-            {
-                CIMStandardDataConnection dataSConnection = dataConnection as CIMStandardDataConnection;
-
-                string sConnection = dataSConnection.WorkspaceConnectionString;
-
-                var wFactory = dataSConnection.WorkspaceFactory;
-                if (wFactory == WorkspaceFactory.Raster)
-                {
-                    string sWorkspaceName = sConnection.Split('=')[1];
-
-                    string sTable = dataSConnection.Dataset;
-
-                    path = System.IO.Path.Combine(sWorkspaceName, sTable);
-                }
-            }
-
-            return path;
+            return Uri.UnescapeDataString(layer.GetPath().LocalPath);
         }
 
         public static (List<string>, List<double[]>, List<double[]>, List<double>) GetRasterData(List<RasterLayer> rLayers)

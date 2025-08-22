@@ -35,10 +35,20 @@ namespace TreeTaggerModule
             //already open?
             if (_treetagselectionwindow != null)
                 return;
-            _treetagselectionwindow = new TreeTagSelectionWindow(null);
-            _treetagselectionwindow.Owner = FrameworkApplication.Current.MainWindow;
-            _treetagselectionwindow.Closed += (o, e) => { _treetagselectionwindow = null; };
-            _treetagselectionwindow.Show();
+
+            try
+            {
+                _treetagselectionwindow = new TreeTagSelectionWindow(null);
+                _treetagselectionwindow.Owner = FrameworkApplication.Current.MainWindow;
+                _treetagselectionwindow.Closed += (o, e) => { _treetagselectionwindow = null; };
+                _treetagselectionwindow.Show();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error encountered: " + e.Message);
+            }
+
+
             //uncomment for modal
             //_treetagselectionwindow.ShowDialog();
         }

@@ -29,13 +29,21 @@ namespace TreeTaggerModule
             //already open?
             if (_directionrerunwindow != null)
                 return;
-            _directionrerunwindow = new DirectionReRunWindow();
-            _directionrerunwindow.Owner = FrameworkApplication.Current.MainWindow;
-            _directionrerunwindow.Closed += (o, e) => { _directionrerunwindow = null; };
-            _directionrerunwindow.Show();
-            //uncomment for modal
-            //_directionrerunwindow.ShowDialog();
-        }
+
+            try { 
+                _directionrerunwindow = new DirectionReRunWindow();
+                _directionrerunwindow.Owner = FrameworkApplication.Current.MainWindow;
+                _directionrerunwindow.Closed += (o, e) => { _directionrerunwindow = null; };
+                _directionrerunwindow.Show();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error encountered: " + e.Message);
+            }
+
+    //uncomment for modal
+    //_directionrerunwindow.ShowDialog();
+}
 
     }
 }

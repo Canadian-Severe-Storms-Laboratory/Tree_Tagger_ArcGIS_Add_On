@@ -29,10 +29,19 @@ namespace TreeTaggerModule
             //already open?
             if (_polygonrerun != null)
                 return;
-            _polygonrerun = new PolygonReRun();
-            _polygonrerun.Owner = FrameworkApplication.Current.MainWindow;
-            _polygonrerun.Closed += (o, e) => { _polygonrerun = null; };
-            _polygonrerun.Show();
+            try
+            {
+                _polygonrerun = new PolygonReRun();
+                _polygonrerun.Owner = FrameworkApplication.Current.MainWindow;
+                _polygonrerun.Closed += (o, e) => { _polygonrerun = null; };
+                _polygonrerun.Show();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error encountered: " + e.Message);
+            }
+
             //uncomment for modal
             //_polygonrerun.ShowDialog();
         }

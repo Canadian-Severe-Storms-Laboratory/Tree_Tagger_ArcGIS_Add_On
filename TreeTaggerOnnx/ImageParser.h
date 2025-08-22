@@ -26,7 +26,7 @@ public:
         std::array<int, 2> size;
         double scale;
 
-        std::array<double, 4>  getExtent() const {
+        std::array<double, 4> getExtent() const {
             return { coords[0], coords[1], coords[0] + size[0] * scale, coords[1] - size[1] * scale };
         }
     };
