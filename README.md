@@ -1,5 +1,5 @@
 # Tree_Tagger_ArcGIS_Add_On
-Addon for ArcGIS Pro which leverages machine learning to automatically detect and analyze direction from fallen trees in large-scale aerial imagery
+Addon for ArcGIS Pro which leverages machine learning to automatically detect and analyze directions from fallen trees in large-scale aerial imagery
 
 ![paper title](https://github.com/Northern-Tornadoes-Project/Tree_Tagger_ArcGIS_Add_On/blob/main_3.0.0/Paper/paper_title.png)
 
